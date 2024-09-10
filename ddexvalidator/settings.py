@@ -126,3 +126,5 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),  # This should be the path to your 'static' folder
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
