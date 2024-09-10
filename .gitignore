@@ -82,10 +82,6 @@ pip-delete-this-directory.txt
 # Thumbnails
 *_thumb.*
 
-# Python virtual environment files
-poetry.lock
-pyproject.toml
-
 # Static files
 staticfiles/
 media/
