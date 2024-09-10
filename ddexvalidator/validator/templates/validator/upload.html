@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDEX XML Validator</title>
+    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Left Column: Form for Upload or Paste XML -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">DDEX XML Validator</h2>
+                    <p class="mt-2 text-center text-sm text-gray-600">
+                        Select a schema and upload or paste your DDEX XML file for validation.
+                    </p>
+                </div>
+                <form class="mt-8 space-y-6" action="/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="rounded-md shadow-sm -space-y-px">
+                        <div>
+                            <label for="schema" class="block text-sm font-medium text-gray-700">Select DDEX Schema</label>
+                            {{ form.schema }}
+                        </div>
+                        <div class="mt-6 mb-4">
+                            <label for="xml_file" class="block text-sm font-medium text-gray-700">Upload DDEX XML file</label>
+                            <input name="xml_file" type="file" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                        </div>
+                        <div class="mt-4">
+                            <label for="xml_text" class="block text-sm font-medium text-gray-700">Or Paste DDEX XML Text</label>
+                            <textarea name="xml_text" rows="8" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Paste your XML here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Validate XML
+                        </button>
+                    </div>
+                </form>
+
+                {% if is_valid %}
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <h2 class="font-bold text-lg">Success</h2>
+                        <p class="mt-1">The XML file is valid according to the DDEX schema.</p>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-gray-700">XML Content:</h3>
+                        <pre class="bg-gray-100 p-4 rounded text-sm text-gray-900 overflow-auto">
+                            {{ xml_content }}
+                        </pre>
+                    </div>
+                {% elif errors %}
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <h2 class="font-bold text-lg">Error</h2>
+                        <p class="mt-1">The XML file is invalid. Errors:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            {% if errors %}
+                                {% if errors|length == 1 and errors.0 == errors %}
+                                    <!-- Handle case where errors is a string -->
+                                    <li>{{ errors }}</li>
+                                {% else %}
+                                    <!-- Handle case where errors is a list -->
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% else %}
+                                <li>No errors found.</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Right Column: Additional Information -->
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">About DDEX</h3>
+                    <p class="text-gray-600 mb-4">DDEX is a consortium of media companies, music licensing organizations, and digital service providers that defines standards for exchanging metadata related to music releases.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Helpful Links</h3>
+                    <ul class="text-blue-600 underline mb-8">
+                        <li><a href="https://ddex.net/" target="_blank">DDEX Official Website</a></li>
+                        <li><a href="https://ddex.net/resources/tools-and-resources/" target="_blank">DDEX Tools and Resources</a></li>
+                        <li><a href="https://ddex.net/xml/ern/" target="_blank">ERN XML Schema Documentation</a></li>
+                        <li><a href="{% static 'samples/ern382.xml' %}" download>Sample XML for ERN 3.8.2 schema</a></li>
+                    </ul>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bravelab ❤️ MusicTech</h3>
+                    <ul class="text-blue-600 underline mb-8">
+                        <li><a href="https://www.bravelab.io" target="_blank">Bravelab.io MusicTech Builders Website</a></li>
+                        <li><a href="https://github.com/bravelab/brave-ddexvalidator" target="_blank">GitHub link for this project</a></li>
+                        <li><a href="https://www.linkedin.com/company/bravelab.io/" target="_blank">Bravelab.io LinkedIn</a></li>
+                        <li><a href="mailto:office@bravelab.io">Wants to implement DDEX? Contact Us 🤘</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">How to Use This Tool</h3>
+                    <p class="text-gray-600">You can either upload an XML file or paste the XML content directly into the form. Ensure that the XML is formatted according to one of the selected DDEX schemas for accurate validation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

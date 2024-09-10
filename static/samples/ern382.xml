@@ -1,0 +1,191 @@
+<ern:NewReleaseMessage MessageSchemaVersionId="ern/382" LanguageAndScriptCode="en" xs:schemaLocation="http://ddex.net/xml/ern/382 http://ddex.net/xml/ern/382/release-notification.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xmlns:ern="http://ddex.net/xml/ern/382">
+    <MessageHeader>
+        <MessageThreadId>123456789012</MessageThreadId>
+        <MessageId>123456789012</MessageId>
+        <MessageSender>
+            <PartyId>PADPIDA2023001</PartyId>
+            <PartyName>
+                <FullName>Sample Music Corp</FullName>
+            </PartyName>
+        </MessageSender>
+        <SentOnBehalfOf>
+            <PartyId>PADPIDA2023001</PartyId>
+            <PartyName>
+                <FullName>Sample Music Corp</FullName>
+            </PartyName>
+        </SentOnBehalfOf>
+        <MessageRecipient>
+            <PartyId>PADPIDA2023002</PartyId>
+            <PartyName>
+                <FullName>Music Distribution Corp</FullName>
+            </PartyName>
+        </MessageRecipient>
+        <MessageRecipient>
+            <PartyId>PADPIDA2013071501L</PartyId>
+            <PartyName>
+                <FullName>Facebook_SRP</FullName>
+            </PartyName>
+        </MessageRecipient>
+        <MessageCreatedDateTime>2024-09-10T12:00:00</MessageCreatedDateTime>
+        <MessageControlType>TestMessage</MessageControlType>
+    </MessageHeader>
+    <ResourceList>
+        <SoundRecording>
+            <SoundRecordingType>MusicalWorkSoundRecording</SoundRecordingType>
+            <SoundRecordingId>
+                <ISRC>USSM12345678</ISRC>
+                <CatalogNumber Namespace="PADPIDA2023001">USSM12345678</CatalogNumber>
+                <ProprietaryId Namespace="PADPIDA2023001">ID:USSM12345678</ProprietaryId>
+            </SoundRecordingId>
+            <ResourceReference>A1</ResourceReference>
+            <ReferenceTitle>
+                <TitleText>Sample Track</TitleText>
+            </ReferenceTitle>
+            <Duration>PT3M30S</Duration>
+            <SoundRecordingDetailsByTerritory>
+                <TerritoryCode>Worldwide</TerritoryCode>
+                <Title TitleType="DisplayTitle">
+                    <TitleText>Sample Track</TitleText>
+                </Title>
+                <DisplayArtist>
+                    <PartyName>
+                        <FullName>Sample Artist</FullName>
+                    </PartyName>
+                    <PartyId Namespace="DPID:PADPIDA2023001">ART001</PartyId>
+                    <ArtistRole>MainArtist</ArtistRole>
+                </DisplayArtist>
+                <IndirectResourceContributor>
+                <PartyName>
+                    <FullName>John Doe</FullName>
+                </PartyName>
+                <PartyId Namespace="DPID:PADPIDA2023001">COMP001</PartyId>
+                <IndirectResourceContributorRole>Composer</IndirectResourceContributorRole> <!-- Use a valid role -->
+            </IndirectResourceContributor>
+                <RightsController>
+                    <PartyName>
+                        <FullName>Sample Music Corp</FullName>
+                    </PartyName>
+                    <PartyId>PADPIDA2023001</PartyId>
+                    <RightsControllerRole>RightsController</RightsControllerRole>
+                    <RightSharePercentage>100.00</RightSharePercentage>
+                </RightsController>
+                <OriginalResourceReleaseDate>2023-01-01</OriginalResourceReleaseDate>
+                <PLine>
+                    <Year>2023</Year>
+                    <PLineText>Sample Artist</PLineText>
+                </PLine>
+                <Genre>
+                    <GenreText>World</GenreText>
+                    <SubGenre />
+                </Genre>
+                <ParentalWarningType>NotExplicit</ParentalWarningType>
+                <TechnicalSoundRecordingDetails>
+                    <TechnicalResourceDetailsReference>T1</TechnicalResourceDetailsReference>
+                    <AudioCodecType>FLAC</AudioCodecType>
+                    <BitRate>320000</BitRate>
+                    <SamplingRate>44100</SamplingRate>
+                    <IsPreview>false</IsPreview>
+                    <File>
+                        <FileName>sample_track.flac</FileName>
+                        <FilePath>/path/to/audio/</FilePath>
+                        <HashSum>
+                            <HashSum>abcdef1234567890abcdef1234567890</HashSum>
+                            <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+                        </HashSum>
+                    </File>
+                </TechnicalSoundRecordingDetails>
+            </SoundRecordingDetailsByTerritory>
+        </SoundRecording>
+        <Image>
+            <ImageType>FrontCoverImage</ImageType>
+            <ImageId>
+                <ProprietaryId Namespace="PADPIDA2023001">release1</ProprietaryId>
+            </ImageId>
+            <ResourceReference>A2</ResourceReference>
+            <ImageDetailsByTerritory>
+                <TerritoryCode>Worldwide</TerritoryCode>
+                <TechnicalImageDetails>
+                    <TechnicalResourceDetailsReference>T2</TechnicalResourceDetailsReference>
+                    <ImageCodecType>JPEG</ImageCodecType>
+                    <ImageHeight>1500</ImageHeight>
+                    <ImageWidth>1500</ImageWidth>
+                    <File>
+                        <FileName>cover_image.jpg</FileName>
+                        <FilePath>/path/to/audio/</FilePath>
+                        <HashSum>
+                            <HashSum>abcdef1234567890abcdef1234567890</HashSum>
+                            <HashSumAlgorithmType>MD5</HashSumAlgorithmType>
+                        </HashSum>
+                    </File>
+                </TechnicalImageDetails>
+            </ImageDetailsByTerritory>
+        </Image>
+    </ResourceList>
+    <ReleaseList>
+        <Release>
+            <ReleaseId>
+                <ICPN>123456789012</ICPN>
+                <CatalogNumber Namespace="PADPIDA2023001">123456789012</CatalogNumber>
+                <ProprietaryId Namespace="PADPIDA2023001">ID:123456789012</ProprietaryId>
+            </ReleaseId>
+            <ReleaseReference>R0</ReleaseReference>
+            <ReferenceTitle>
+                <TitleText>Sample Music Label</TitleText>
+            </ReferenceTitle>
+            <ReleaseResourceReferenceList>
+                <ReleaseResourceReference>A1</ReleaseResourceReference>
+                <ReleaseResourceReference>A2</ReleaseResourceReference>
+            </ReleaseResourceReferenceList>
+            <ReleaseType>Album</ReleaseType>
+            <ReleaseDetailsByTerritory>
+                <TerritoryCode>Worldwide</TerritoryCode>
+                <DisplayArtistName>Sample Artist</DisplayArtistName>
+                <LabelName>Sample Music Label</LabelName>
+                <Title TitleType="FormalTitle">
+                    <TitleText>Sample Music Label</TitleText>
+                </Title>
+                <Title TitleType="DisplayTitle">
+                    <TitleText>Sample Music Label</TitleText>
+                </Title>
+                <DisplayArtist>
+                    <PartyName>
+                        <FullName>Sample Artist</FullName>
+                    </PartyName>
+                    <PartyId Namespace="DPID:PADPIDA2023001">ART001</PartyId>
+                    <ArtistRole>MainArtist</ArtistRole>
+                </DisplayArtist>
+                <ParentalWarningType>NotExplicit</ParentalWarningType>
+                <ResourceGroup>
+                    <ResourceGroup>
+                        <Title TitleType="GroupingTitle">
+                            <TitleText>Sample Music Label</TitleText>
+                        </Title>
+                        <SequenceNumber>1</SequenceNumber>
+                        <ResourceGroupContentItem>
+                            <SequenceNumber>1</SequenceNumber>
+                            <ResourceType>SoundRecording</ResourceType>
+                            <ReleaseResourceReference ReleaseResourceType="PrimaryResource">A1</ReleaseResourceReference>
+                        </ResourceGroupContentItem>
+                    </ResourceGroup>
+                    <ResourceGroupContentItem>
+                        <ResourceType>Image</ResourceType>
+                        <ReleaseResourceReference ReleaseResourceType="SecondaryResource">A2</ReleaseResourceReference>
+                    </ResourceGroupContentItem>
+                </ResourceGroup>
+                <Genre>
+                    <GenreText>World</GenreText>
+                    <SubGenre />
+                </Genre>
+                <OriginalReleaseDate>2023-01-01</OriginalReleaseDate>
+            </ReleaseDetailsByTerritory>
+            <PLine>
+                <Year>2023</Year>
+                <PLineText>Sample Artist</PLineText>
+            </PLine>
+            <CLine>
+                <Year>2023</Year>
+                <CLineText>Sample Music Corp</CLineText>
+            </CLine>
+        </Release>
+    </ReleaseList>
+</ern:NewReleaseMessage>
