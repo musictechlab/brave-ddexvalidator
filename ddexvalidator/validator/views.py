@@ -4,6 +4,9 @@ from lxml import etree
 
 from .forms import UploadXMLForm
 
+from django.conf import settings
+
+print (settings.GOOGLE_ANALYTICS)
 
 def validate_ddex_xml(xml_data, xsd_url, is_file=True):
     """Validate the uploaded or pasted XML file against the selected DDEX XSD schema."""
@@ -78,5 +81,6 @@ def upload_and_validate_xml(request):
             "is_valid": is_valid,
             "errors": errors,
             "xml_content": xml_content,
+            "GOOGLE_ANALYTICS": settings.GOOGLE_ANALYTICS
         },
     )
