@@ -1,6 +1,8 @@
 
 # DDEX XML Validator
 
+![Screenshot of the DDEX Validator](./static/screenshot.png)
+
 This is a Django-based application for validating DDEX XML files against various DDEX schema versions. Users can upload an XML file or paste XML text to validate against specific DDEX schemas.
 
 ## Features
