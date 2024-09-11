@@ -5,6 +5,10 @@
 
 This is a Django-based application for validating DDEX XML files against various DDEX schema versions. Users can upload an XML file or paste XML text to validate against specific DDEX schemas.
 
+## Demo
+
+[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://ddexvalidator.bravelab.io)
+
 ## Features
 - Validate DDEX XML files by uploading or pasting XML content.
 - Supports various versions of DDEX schemas fetched dynamically from the DDEX directory.
